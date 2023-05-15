@@ -7,7 +7,7 @@ const https = require("https");
 
 
 const app = express() ;
-const port = 3000 ;
+const port =process.env.KEY || 3000 ;
 
 //for the input in the html
 app.use(bodyParser.urlencoded({extended:true}));
@@ -87,7 +87,7 @@ app.post("/failure" , function(req , res){
 
 
 
-app.listen(process.env.PORT || port , function(){
+app.listen(port , function(){
   console.log("server on port" + port);
 });
 
